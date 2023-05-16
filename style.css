@@ -1,0 +1,155 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: 'Nunito', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body{
+    background: url('https://bfa.github.io/solitaire-js/img/green_felt.jpg');
+}
+
+
+.handler{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.container .time_wrapper{
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    position: absolute;
+    width: 98%;
+    bottom: 0;
+    margin: 10px;
+    padding: 1vh;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+.container .time_wrapper .timer{
+    box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	background-color:#89c403;
+	border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;
+    width: 35px;
+}
+
+.container .time_wrapper .clock{
+    box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	background-color:#89c403;
+	border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;
+    width: 60px;
+}
+
+.container .time_wrapper .reset{
+    box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	background-color:#89c403;
+	border-radius:6px;
+	border:1px solid #74b807;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;
+    width: 150px;
+}
+
+.container .time_wrapper .reset:hover{
+    background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+	background-color:#77a809;
+}
+
+.handler .stack_wrapper{
+    display: flex;
+    gap: 30px;
+}
+
+.handler .upperdeck_wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.handler .upperdeck_wrapper .upperdeck{
+    border: 0.5px dashed black;
+    border-radius: 10px;
+    width: 100px;
+    height: 145.195px;
+    
+}
+
+.lowerdeck_wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lowerdeck_wrapper .lowerdeck{
+    position: relative;
+    width: 150px;
+    min-height: 150px;
+}
+
+.lowerdeck_wrapper .lowerdeck img{
+    position: absolute;
+    left: 0;
+    width: 100px;
+    
+}
+
+.handler img{
+    width: 100px;
+}
+
+.upperdeck{
+    position: relative;
+}
+
+.upperdeck img{
+    position: absolute;
+    top: 0;
+}
+
