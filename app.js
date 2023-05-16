@@ -12,7 +12,6 @@ class Card {
 class Deck {
     constructor(){
         this.cards = [];
-        
     }
 
     createCards = () => {
@@ -25,6 +24,7 @@ class Deck {
                 if(value === 'spades' || value === 'clubs'){
                     color = 'black';
                 }
+
                 this.cards.push(new Card(figure, value, `${figure}_of_${value}.png`, color, index))
             })
         })
@@ -99,7 +99,7 @@ class Game {
         this.deck.createCards();
         this.deck.shuffle(); 
         this.lowerDecks.forEach((lowerDeck, index) =>{
-            for(let i = 0; i < index + 1; i++){
+            for(let i = 1; i < index + 1; i++){
                 const card = document.createElement('img');
                 card.src = `/cards/${this.deck.cards[0].link}`;
                 card.style.top = i === 0 ? 0 : `${i * 15}px`;
@@ -178,6 +178,11 @@ class Movement {
 
     dragEndEvent = (e) =>{
         const parentLowerdeck = e.target.closest('.lowerdeck');
+
+        if(!parentLowerdeck){
+            return;
+        }
+
         const allChilds = [...parentLowerdeck.querySelectorAll('img')];
         const currentCardIndex = allChilds.indexOf(e.target);
         const nextCards = allChilds.filter((item, index) => index > currentCardIndex);
@@ -209,7 +214,7 @@ class Movement {
             const movedCard = document.querySelector(`img[src="/cards/${movedCardInfo.link}"]`);
             const parentLowerdeck = movedCard.closest('.lowerdeck');
 
-            movedCard.style.top = (e.currentTarget.children.length * 15) + "px";
+            movedCard.style.top = (e.currentTarget.children.length * 15 + 15) + "px";
             e.currentTarget.appendChild(movedCard);
 
             if(parentLowerdeck){
@@ -226,6 +231,10 @@ class Movement {
                 const nextCardInfo = JSON.parse(currentDeckCards[currentDeckCards.length - 1].dataset.info);
                 currentDeckCards[currentDeckCards.length - 1].src = `/cards/${nextCardInfo.link}`
             }
+
+            deck.cards = deck.cards.filter(card => card.link !== movedCardInfo.link)
+
+            console.log(deck)
         }
     };
 
